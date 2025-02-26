@@ -3,11 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three.js 測試</title>
-    <style> body { margin: 0; overflow: hidden; } </style>
+    <title>我的作品集</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <script src="libs/three.min.js"></script>
-    <script src="script.js"></script>
+
+    <!-- 導覽列 -->
+    <header class="navbar">
+        <h1>作品集</h1>
+        <nav>
+            <a href="#about">關於我</a>
+            <a href="#projects">作品</a>
+            <a href="#contact">聯絡</a>
+        </nav>
+    </header>
+
+    <!-- 首屏 Hero 區塊 -->
+    <section class="hero">
+        <h2>你好，我是 <span class="highlight">開發者</span></h2>
+        <p>這是一個具有動態效果的作品集網站</p>
+    </section>
+
+    <!-- 關於我 -->
+    <section id="about" class="about">
+        <h2>關於我</h2>
+        <p>這裡可以放置你的自我介紹</p>
+    </section>
+
+    <!-- 作品區 -->
+    <section id="projects" class="projects">
+        <h2>作品展示</h2>
+        <div class="project-grid">
+            <div class="project"><img src="https://source.unsplash.com/random/400x300" alt="作品1"></div>
+            <div class="project"><img src="https://source.unsplash.com/random/400x301" alt="作品2"></div>
+            <div class="project"><img src="https://source.unsplash.com/random/400x302" alt="作品3"></div>
+        </div>
+    </section>
+
+    <!-- 聯絡方式 -->
+    <section id="contact" class="contact">
+        <h2>聯絡我</h2>
+        <p>電子郵件: your@email.com</p>
+    </section>
+
 </body>
 </html>

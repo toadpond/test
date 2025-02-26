@@ -1,24 +1,30 @@
-// 建立場景
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+// 啟動 GSAP ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
-// 建立立方體
-const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
+// Hero 文字進場動畫
+gsap.from(".hero h2", { opacity: 0, y: 50, duration: 1 });
+gsap.from(".hero p", { opacity: 0, y: 50, duration: 1, delay: 0.3 });
 
-// 設定攝影機位置
-camera.position.z = 5;
+// 作品區塊滾動出場動畫
+gsap.from(".projects .project", {
+    opacity: 0,
+    y: 100,
+    stagger: 0.2,
+    duration: 1,
+    scrollTrigger: {
+        trigger: ".projects",
+        start: "top 80%",
+        toggleActions: "play none none none"
+    }
+});
 
-// 動畫渲染
-function animate() {
-    requestAnimationFrame(animate);
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-    renderer.render(scene, camera);
-}
-animate();
+// 滾動時的背景漸變效果
+gsap.to("body", {
+    background: "#222",
+    scrollTrigger: {
+        trigger: ".about",
+        start: "top 50%",
+        end: "bottom 50%",
+        scrub: true
+    }
+});
